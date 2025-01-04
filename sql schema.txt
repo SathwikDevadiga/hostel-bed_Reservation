@@ -1,0 +1,27 @@
+-- Create Database
+CREATE DATABASE hostel_management;
+
+-- Use the database
+USE hostel_management;
+
+-- Create Hostel Table
+CREATE TABLE hostel (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    total_beds INT NOT NULL,
+    available_beds INT NOT NULL
+);
+
+-- Create Student Table
+CREATE TABLE student (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    hostel_id INT NOT NULL,
+    FOREIGN KEY (hostel_id) REFERENCES hostel(id)
+);
+
+-- Insert Sample Data
+INSERT INTO hostel (name, total_beds, available_beds) VALUES 
+('Hostel A', 100, 100),
+('Hostel B', 50, 50),
+('Hostel C', 200, 200);
